@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Fabian Sitaka - Environmental Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#005312",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#41493e",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary-container": "#883454",
+                        "on-tertiary-fixed-variant": "#7a2949",
+                        "outline-variant": "#c0c9bb",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eceeef",
+                        "secondary-container": "#a0f399",
+                        "inverse-primary": "#91d78a",
+                        "tertiary-fixed-dim": "#ffb1c8",
+                        "surface-dim": "#d8dadb",
+                        "primary-container": "#1b5e20",
+                        "surface": "#f8fafb",
+                        "tertiary": "#6b1d3d",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8e9",
+                        "on-primary-container": "#90d689",
+                        "on-secondary-container": "#217128",
+                        "surface-variant": "#e1e3e4",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "on-tertiary-container": "#ffaec6",
+                        "secondary-fixed-dim": "#88d982",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8fafb",
+                        "on-surface": "#191c1d",
+                        "secondary": "#1b6d24",
+                        "outline": "#717a6d",
+                        "surface-bright": "#f8fafb",
+                        "primary-fixed-dim": "#91d78a",
+                        "surface-tint": "#2a6b2c",
+                        "surface-container-highest": "#e1e3e4",
+                        "primary": "#00450d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#3e001d",
+                        "surface-container-low": "#f2f4f5",
+                        "primary-fixed": "#acf4a4",
+                        "on-primary-fixed": "#002203",
+                        "tertiary-fixed": "#ffd9e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "display": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky bg-surface dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline z-50 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+  <div class="flex items-center gap-4">
+    <a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed" href="index.html">Fabian Sitaka</a>
+  </div>
+  <div class="hidden md:flex flex-1 justify-center items-center gap-8">
+    <a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all duration-200" href="index.html">Home</a>
+    <a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md transition-all duration-300" href="services.html">Services</a>
+    <a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all duration-200" href="about.html">About</a>
+    <a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all duration-200" href="resources.html">Resources</a>
+    <!--<a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all duration-200" href="insights.html">Insights</a>-->
+  </div>
+  <div class="flex items-center gap-4">
+    <a class="bg-primary text-on-primary px-6 py-3 font-label-md text-label-md rounded hover:bg-primary-container transition-colors duration-300" href="book_consultation.html">Book Consultation</a>
+  </div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<header class="relative py-section-gap overflow-hidden bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 lg:col-span-7">
+<span class="inline-block bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-md text-label-md mb-6">
+                            NEMA REGISTERED EXPERT
+                        </span>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-6">
+                            Institutional Excellence in Environmental Stewardship
+                        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                            Providing strategic environmental consulting and NEMA-compliant solutions for industrial, corporate, and governmental sectors in Kenya.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-on-primary px-8 py-4 rounded font-label-md text-label-md hover:shadow-lg transition-all" href="#services-grid">Explore Services</a>
+<a class="border border-outline text-primary px-8 py-4 rounded font-label-md text-label-md hover:bg-surface-variant transition-all" href="resources.html">Corporate Brochure</a>
+</div>
+</div>
+<div class="hidden lg:block col-span-5 relative">
+<div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Modern Office" class="w-full h-full object-cover" data-alt="collective" src= "resources/pic1.jpeg"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-secondary-container/10 -skew-x-12 translate-x-20"></div>
+</header>
+<!-- Services Section -->
+<section class="py-section-gap bg-surface" id="services-grid">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-20 text-center max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Core Consulting Competencies</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our services are designed to navigate the complexities of environmental regulations while driving sustainable business growth.
+                    </p>
+</div>
+<!-- Service Grid (Bento Style) -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- 1. EIA -->
+<div class="col-span-12 lg:col-span-8 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col md:flex-row gap-10 transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<div class="md:w-1/2">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">assessment</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Environmental Impact Assessment (EIA)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Comprehensive assessments for new projects to identify potential environmental effects and develop robust mitigation strategies before implementation.
+                                </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+                                        Project feasibility analysis
+                                    </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+                                        Mitigation &amp; management plans
+                                    </li>
+</ul>
+<a class="text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                    Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="md:w-1/2 rounded-lg overflow-hidden">
+<img alt="EIA" class="w-full h-full object-cover" data-alt="A professional team conducting a field survey at a potential construction site, using mapping equipment and taking notes. The setting is a lush natural landscape transitioning into an urban fringe under a bright, clear sky. The visual style is crisp and documentary-like, emphasizing precision and scientific rigor. Deep greens and earthy tones dominate the palette, aligning with sustainable corporate branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkRscyQj5jPj86WD6g5KFOavBSlDTt2Zls3BVKPbx3cgW7lKyjGM4CB1fItf8V2B9gD25N-ymCPwUEJzcq2CCwu9-8dSAtwWFGlJROLRqqDctVoXZjB_sTS6I2rfBas7Jt5H6rADn_cxAuDZy2uBdB6x2Vnyk4WWHgY1Zl0muLjKnxSZ7JzaY8PrapWJz_oVoK83JjpFSXMbIwnrN5XrvIm1bGTccS5tz36MAy5KKqHbEYCqXEEFfamy-AGmUpFLSb5IFkTEmbOc_C"/>
+</div>
+</div>
+</div>
+<!-- 2. Environmental Audits -->
+<div class="col-span-12 lg:col-span-4 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Environmental Audits</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Annual mandatory audits to evaluate the environmental performance of existing facilities against NEMA standards.
+                            </p>
+<ul class="space-y-3 mb-auto">
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+                                    Regulatory gap analysis
+                                </li>
+<li class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-xl">check_circle</span>
+                                    Operational efficiency review
+                                </li>
+</ul>
+<a class="mt-8 text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 3. EPR -->
+<div class="col-span-12 lg:col-span-4 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">recycling</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Extended Producer Responsibility (EPR)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Strategic frameworks for manufacturers to take responsibility for the entire life cycle of their products.
+                            </p>
+<a class="mt-auto text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 4. ESG Advisory -->
+<div class="col-span-12 lg:col-span-8 group">
+<div class="bg-primary text-on-primary p-10 rounded-xl h-full flex flex-col md:flex-row gap-10 transition-all duration-300 hover:shadow-2xl">
+<div class="md:w-1/2">
+<span class="material-symbols-outlined text-on-primary-container text-5xl mb-6">corporate_fare</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">ESG Advisory &amp; Reporting</h3>
+<p class="text-on-primary-container font-body-md text-body-md mb-6">
+                                    Integrating Environmental, Social, and Governance (ESG) criteria into corporate strategy to enhance investor appeal and brand value.
+                                </p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-on-primary-container">
+<span class="material-symbols-outlined text-on-primary-container text-xl">verified</span>
+                                        Sustainability reporting
+                                    </li>
+<li class="flex items-center gap-3 text-on-primary-container">
+<span class="material-symbols-outlined text-on-primary-container text-xl">verified</span>
+                                        Stakeholder engagement
+                                    </li>
+</ul>
+<a class="bg-on-primary text-primary px-6 py-3 rounded font-label-md text-label-md hover:bg-secondary-container transition-all inline-block" href="book_consultation.html">
+                                    Book ESG Strategy Session
+                                </a>
+</div>
+<div class="md:w-1/2 relative">
+<img alt="ESG Data" class="w-full h-full object-cover rounded-lg opacity-80" data-alt="A clean, minimalist data visualization screen displaying sustainability metrics and ESG performance charts. The UI design is sophisticated, utilizing deep forest greens and soft white backgrounds. The scene represents a high-level corporate dashboard used by executives to track environmental impact. The lighting is soft and even, highlighting professional data integrity and corporate transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1owAmo6IewzJ-NVfmUuo8xnxXSQyuy2p7UcZ_o9edwM_dDUDbQXlWNbPG7_o4iX8Tm1LeBhlMRIuB67DA7BazRn8snZ18t2wty0BtmTZzfaRLjJ4mmTlxl7YCdnkFUR_LgJj3SJZLlJAD6bb0uEFmR0DHFCkTQBlhg6EBDxEzqNlDHQFhd4XG4TcOywyjn9gssU-HcABrPg7jMnPp9JPuYfBgmBhq_w3pZNAT9vyOwrnsrhCH-qQELCsiZdtMTxrSvnQnsCQk_lNY"/>
+</div>
+</div>
+</div>
+<!-- 5. Waste Management -->
+<div class="col-span-12 lg:col-span-6 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">delete_sweep</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Waste Management Planning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Designing efficient waste segregation, disposal, and reduction systems for large-scale operations and municipalities.
+                            </p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded border border-outline-variant">
+<h4 class="font-bold text-primary mb-1">Circular Economy</h4>
+<p class="text-xs text-on-surface-variant">Resource recovery models.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded border border-outline-variant">
+<h4 class="font-bold text-primary mb-1">Hazardous Waste</h4>
+<p class="text-xs text-on-surface-variant">Safe handling protocols.</p>
+</div>
+</div>
+<a class="mt-auto text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 6. NEMA Licensing -->
+<div class="col-span-12 lg:col-span-6 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">approval_delegation</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">NEMA Licensing &amp; Permitting</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Expert handling of application processes for Effluent Discharge, Emission Licenses, and Noise Permits.
+                            </p>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Effluent Discharge</span>
+<span class="text-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">High Priority</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Emission Control</span>
+<span class="text-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">Industrial</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Noise Licensing</span>
+<span class="text-xs bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">Commercial</span>
+</div>
+</div>
+<a class="mt-auto text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 7. Compliance Monitoring -->
+<div class="col-span-12 lg:col-span-4 group">
+<div class="glass-card p-10 rounded-xl h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">monitor_heart</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Compliance Monitoring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Ongoing tracking of environmental parameters to ensure consistent adherence to legal requirements.
+                            </p>
+<a class="mt-auto text-primary font-bold inline-flex items-center gap-2 group-hover:gap-4 transition-all" href="book_consultation.html">
+                                Request Service <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- 8. Training -->
+<div class="col-span-12 lg:col-span-8 group">
+<div class="service-gradient p-10 rounded-xl h-full border border-outline-variant flex flex-col md:flex-row gap-10 transition-all duration-300 hover:shadow-xl">
+<div class="md:w-1/2">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">school</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Capacity Building &amp; Training</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                    Empowering teams with the knowledge to manage environmental risks internally and maintain a culture of compliance.
+                                </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-white rounded border border-outline-variant text-xs font-bold text-primary">ISO 14001</span>
+<span class="px-3 py-1 bg-white rounded border border-outline-variant text-xs font-bold text-primary">Waste Segregation</span>
+<span class="px-3 py-1 bg-white rounded border border-outline-variant text-xs font-bold text-primary">Safety Protocols</span>
+</div>
+<a class="bg-primary text-on-primary px-6 py-3 rounded font-label-md text-label-md hover:bg-primary-container transition-all inline-block" href="book_consultation.html">
+                                    Inquire About Workshops
+                                </a>
+</div>
+<div class="md:w-1/2 rounded-lg overflow-hidden">
+<img alt="Training" class="w-full h-full object-cover" data-alt="Fabian Sitaka Capacity Building Training" src="resources/capacitybuilding.jpeg"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap bg-surface-container-highest">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Ready to Ensure Your Compliance?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                        Join 50+ organizations that trust Fabian Sitaka for expert environmental guidance and NEMA certification.
+                    </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a class="bg-primary text-on-primary px-10 py-5 rounded-lg font-label-md text-label-md text-lg hover:shadow-xl transition-all" href="book_consultation.html">
+                            Request a Service Quote
+                        </a>
+<a class="bg-white border border-outline text-primary px-10 py-5 rounded-lg font-label-md text-label-md text-lg hover:bg-surface transition-all" href="book_consultation.html">
+                            Speak with an Expert
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-unit bg-surface-container-highest">
+<div class="grid grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-12 lg:col-span-4 mb-10 lg:mb-0">
+<div class="font-headline-sm text-headline-sm text-on-surface-variant mb-6 font-bold">Fabian Sitaka</div>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-sm">
+                    NEMA Registered Environmental Expert providing technical excellence and strategic advisory for a sustainable future.
+                </p>
+</div>
+<div class="col-span-6 lg:col-span-2">
+<h4 class="font-bold text-primary mb-6">Services</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#services-grid">EIA Audits</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#services-grid">ESG Advisory</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#services-grid">Waste Management</a></li>
+</ul>
+</div>
+<div class="col-span-6 lg:col-span-2">
+<h4 class="font-bold text-primary mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="resources.html">Resources</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="book_consultation.html">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-12 lg:col-span-4">
+<h4 class="font-bold text-primary mb-6">Stay Updated</h4>
+<div class="flex gap-2">
+<input class="bg-surface px-4 py-3 rounded flex-grow border-none focus:ring-2 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-6 py-3 rounded" data-coming-soon class="btn-primary" onclick="event.preventDefault(); showComingSoon();">Join</button>
+</div>
+</div>
+<div class="col-span-12 border-t border-outline-variant mt-20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant font-body-md text-body-md">
+                    © 2026 Fabian Sitaka. All rights reserved. NEMA Registered Expert.
+                </p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<div id="comingSoonModal" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="hideComingSoon()">&times;</span>
+
+    <div class="icon">🚀</div>
+
+    <h2>Coming Soon</h2>
+
+    <p>This feature is under development. Check back soon.</p>
+
+    <button class="close-btn" onclick="hideComingSoon()">Got It</button>
+  </div>
+</div>
+<script src="js/services.js"></script>
+</body></html>

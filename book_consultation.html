@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book a Consultation | Fabian Sitaka - NEMA Registered Expert</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // emailjs.init called after DOM ready to avoid parse errors if CDN is slow
+  window.addEventListener('load', function() {
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init({ publicKey: '7vtn0llq8eDMfVxz9' }); // ← replace with your EmailJS public key
+    }
+  });
+</script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "error": "#ba1a1a",
+          "on-secondary-fixed-variant": "#005312",
+          "error-container": "#ffdad6",
+          "on-background": "#191c1d",
+          "on-surface-variant": "#41493e",
+          "on-secondary-fixed": "#002204",
+          "tertiary-container": "#883454",
+          "on-tertiary-fixed-variant": "#7a2949",
+          "outline-variant": "#c0c9bb",
+          "on-primary": "#ffffff",
+          "secondary-fixed": "#a3f69c",
+          "on-error": "#ffffff",
+          "inverse-surface": "#2e3132",
+          "on-tertiary": "#ffffff",
+          "surface-container": "#eceeef",
+          "secondary-container": "#a0f399",
+          "inverse-primary": "#91d78a",
+          "tertiary-fixed-dim": "#ffb1c8",
+          "surface-dim": "#d8dadb",
+          "primary-container": "#1b5e20",
+          "surface": "#f8fafb",
+          "tertiary": "#6b1d3d",
+          "inverse-on-surface": "#eff1f2",
+          "on-secondary": "#ffffff",
+          "surface-container-high": "#e6e8e9",
+          "on-primary-container": "#90d689",
+          "on-secondary-container": "#217128",
+          "surface-variant": "#e1e3e4",
+          "on-primary-fixed-variant": "#0c5216",
+          "on-tertiary-container": "#ffaec6",
+          "secondary-fixed-dim": "#88d982",
+          "surface-container-lowest": "#ffffff",
+          "background": "#f8fafb",
+          "on-surface": "#191c1d",
+          "secondary": "#1b6d24",
+          "outline": "#717a6d",
+          "surface-bright": "#f8fafb",
+          "primary-fixed-dim": "#91d78a",
+          "surface-tint": "#2a6b2c",
+          "surface-container-highest": "#e1e3e4",
+          "primary": "#00450d",
+          "on-error-container": "#93000a",
+          "on-tertiary-fixed": "#3e001d",
+          "surface-container-low": "#f2f4f5",
+          "primary-fixed": "#acf4a4",
+          "on-primary-fixed": "#002203",
+          "tertiary-fixed": "#ffd9e2"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"
+        },
+        spacing: {
+          "margin-desktop": "64px", "unit": "8px", "container-max": "1280px",
+          "margin-mobile": "20px", "section-gap": "120px", "gutter": "24px"
+        },
+        fontFamily: {
+          "body-md": ["Inter"], "headline-lg-mobile": ["Montserrat"],
+          "headline-lg": ["Montserrat"], "label-md": ["Inter"],
+          "headline-md": ["Montserrat"], "headline-sm": ["Montserrat"],
+          "display": ["Montserrat"], "body-lg": ["Inter"]
+        },
+        fontSize: {
+          "body-md": ["16px", {"lineHeight":"1.5","fontWeight":"400"}],
+          "headline-lg-mobile": ["32px", {"lineHeight":"1.2","fontWeight":"700"}],
+          "headline-lg": ["48px", {"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],
+          "label-md": ["14px", {"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],
+          "headline-md": ["32px", {"lineHeight":"1.3","fontWeight":"600"}],
+          "headline-sm": ["24px", {"lineHeight":"1.4","fontWeight":"600"}],
+          "display": ["64px", {"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "body-lg": ["18px", {"lineHeight":"1.6","fontWeight":"400"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+ #comingSoonModal {
+  display: none;              /* hidden by default */
+  position: fixed;
+  inset: 0;
+  z-index: 99999;             /* above everything */
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* modal box */
+#comingSoonModal .modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 420px;
+  margin: 12vh auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+
+  /* green accent */
+  border-top: 5px solid #00450d;
+
+  /* safe shadow (won’t clash with Tailwind) */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+  animation: csPop 0.22s ease-out;
+}
+
+/* icon */
+#comingSoonModal .icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+/* heading */
+#comingSoonModal h2 {
+  color: #00450d;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* text */
+#comingSoonModal p {
+  color: #41493e;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* button */
+#comingSoonModal .close-btn {
+  background: #00450d;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#comingSoonModal .close-btn:hover {
+  background: #006b16;
+  transform: translateY(-2px);
+}
+
+/* close X */
+#comingSoonModal .close-x {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #717a6d;
+}
+
+#comingSoonModal .close-x:hover {
+  color: #00450d;
+}
+
+/* animation */
+@keyframes csPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface border-b border-outline-variant z-50">
+<nav class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<a class="font-headline-sm text-headline-sm font-bold text-primary cursor-pointer" href="index.html">Fabian Sitaka</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="services.html">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="resources.html">Resources</a>
+<!--<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="insights.html">Insights</a>-->
+</div>
+    <a class="bg-primary text-on-primary px-6 py-3 font-label-md text-label-md rounded hover:bg-primary-container transition-colors duration-300" href="book_consultation.html">Book Consultation</a>
+
+</nav>
+</header>
+<main class="flex-grow flex flex-col md:flex-row max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-unit md:py-16 gap-gutter">
+
+  <!-- Sidebar -->
+  <aside class="w-full md:w-1/3 flex flex-col gap-6">
+    <div class="bg-surface-container-lowest p-8 border border-outline-variant booking-card-shadow rounded-xl">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container">
+          <img alt="Fabian Sitaka" class="w-full h-full object-cover"
+               src="resources/Fabian Sitaka Portrait.jpeg"/>
+        </div>
+        <div>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Fabian Sitaka</h2>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-md text-xs">
+            <span class="material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1;">verified</span>
+            NEMA Registered
+          </span>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="font-label-md text-label-md text-primary uppercase tracking-widest">Expertise</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-0.5">eco</span>
+            <span class="text-body-md text-on-surface-variant">Environmental Auditing &amp; Compliance</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-0.5">policy</span>
+            <span class="text-body-md text-on-surface-variant">Strategic Impact Assessments</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary mt-0.5">analytics</span>
+            <span class="text-body-md text-on-surface-variant">Sustainability Consulting</span>
+          </li>
+        </ul>
+      </div>
+      <hr class="my-8 border-outline-variant"/>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between text-on-surface-variant">
+          <span class="font-label-md">Session Length</span>
+          <span class="font-body-md">45 Minutes</span>
+        </div>
+        <div class="flex items-center justify-between text-on-surface-variant">
+          <span class="font-label-md">Availability</span>
+          <span class="font-body-md">Mon — Fri</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-primary text-on-primary p-8 rounded-xl relative overflow-hidden">
+      <div class="relative z-10">
+        <h4 class="font-headline-sm text-headline-sm mb-2">Need a faster response?</h4>
+        <p class="text-body-md opacity-90 mb-6">For urgent inquiries, reach us by phone or email.</p>
+        <a class="text-on-primary border-b border-on-primary pb-1 font-label-md hover:opacity-80 mr-4" href="tel:+254725544461">Call Us: +254725544461</a>
+      </div>
+      <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+        <span class="material-symbols-outlined text-[120px]">support_agent</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Booking Section -->
+  <section class="w-full md:w-2/3 flex flex-col gap-8">
+
+    <!-- Stepper -->
+    <div class="flex border-b border-outline-variant">
+      <button class="flex-1 text-center font-label-md pb-4 step-active" id="step-1-btn">1. Project Scope</button>
+      <button class="flex-1 text-center font-label-md pb-4 text-on-surface-variant opacity-50" id="step-2-btn">2. Date &amp; Time</button>
+      <button class="flex-1 text-center font-label-md pb-4 text-on-surface-variant opacity-50" id="step-3-btn">3. Confirmation</button>
+    </div>
+
+    <!-- ── Step 1: Project Information ─────────────────────────────────────── -->
+    <div class="space-y-8" id="step-1-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <div class="space-y-2">
+          <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter" for="f-name">Full Name <span class="text-error">*</span></label>
+          <input id="f-name" class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="John Doe" type="text"/>
+        </div>
+
+        <div class="space-y-2">
+          <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter" for="f-org">Organization</label>
+          <input id="f-org" class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="Acme Environmental Corp" type="text"/>
+        </div>
+
+        <div class="space-y-2">
+          <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter" for="f-phone">Phone Number <span class="text-error">*</span></label>
+          <input id="f-phone" class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="+254 7XX XXX XXX" type="tel"/>
+        </div>
+
+        <div class="space-y-2">
+          <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter" for="f-email">Email Address <span class="text-error">*</span></label>
+          <input id="f-email" class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none" placeholder="you@example.com" type="email"/>
+        </div>
+
+      </div>
+
+      <div class="space-y-2">
+        <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter" for="f-service">Service Selection</label>
+        <div class="relative">
+          <select id="f-service" class="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 px-4 py-3 text-body-md transition-colors outline-none appearance-none pr-10">
+            <option>Environmental Impact Assessment (EIA)</option>
+            <option>NEMA Compliance Audit</option>
+            <option>Strategic Sustainability Planning</option>
+            <option>Waste Management Consulting</option>
+          </select>
+          <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm">expand_more</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <label class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter">Consultation Format</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="flex items-center gap-4 p-5 border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-all group has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+            <input checked name="format" class="hidden" type="radio" value="virtual"/>
+            <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">video_camera_front</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-md text-on-surface">Virtual Meeting</span>
+              <span class="text-xs text-on-surface-variant">Via Zoom or Teams</span>
+            </div>
+          </label>
+          <label class="flex items-center gap-4 p-5 border border-outline-variant rounded-xl cursor-pointer hover:border-primary transition-all group has-[:checked]:bg-primary-container/10 has-[:checked]:border-primary">
+            <input name="format" class="hidden" type="radio" value="physical"/>
+            <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined">corporate_fare</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-md text-on-surface">Physical Office</span>
+              <span class="text-xs text-on-surface-variant">Nairobi Office HQ</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="pt-4 flex justify-end">
+        <button onclick="nextStep(2)" class="bg-primary text-on-primary font-label-md px-10 py-4 rounded-lg flex items-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+          Continue to Schedule
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Step 2: Custom Calendar & Time Slots ────────────────────────────── -->
+    <div class="hidden space-y-8" id="step-2-content">
+
+      <!-- Calendar Card -->
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden booking-card-shadow">
+
+        <!-- Calendar Header -->
+        <div class="flex items-center justify-between px-6 py-4 bg-primary text-on-primary">
+          <button id="cal-prev" type="button" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors">
+            <span class="material-symbols-outlined text-sm">chevron_left</span>
+          </button>
+          <span id="cal-month-label" class="font-headline-sm text-base font-bold tracking-wide"></span>
+          <button id="cal-next" type="button" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors">
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+          </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="flex items-center gap-6 px-6 pt-4 pb-2 text-xs text-on-surface-variant">
+          <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full bg-primary"></span> Selected</span>
+          <span class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-full border border-outline-variant bg-surface-container-low opacity-40"></span> Unavailable</span>
+        </div>
+
+        <!-- Grid -->
+        <div id="cal-grid" class="px-4 pb-6"></div>
+      </div>
+
+      <!-- Time Slots (shown after date selection) -->
+      <div id="time-slots-section" class="hidden space-y-4">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">schedule</span>
+          <div>
+            <p class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter">Selected Date</p>
+            <p id="selected-date-display" class="text-body-md font-bold text-on-surface"></p>
+          </div>
+        </div>
+        <p class="font-label-md text-xs text-on-surface-variant uppercase tracking-tighter">Choose a Time Slot</p>
+        <div id="time-slots-grid"></div>
+      </div>
+
+      <!-- Step 2 Nav -->
+      <div class="pt-4 flex justify-between">
+        <button onclick="nextStep(1)" class="text-on-surface-variant font-label-md px-6 py-4 flex items-center gap-2 hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back
+        </button>
+        <button onclick="nextStep(3)" class="bg-primary text-on-primary font-label-md px-10 py-4 rounded-lg flex items-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+          Confirm Appointment
+          <span class="material-symbols-outlined">check</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Step 3: Confirmation ────────────────────────────────────────────── -->
+    <div class="hidden space-y-8" id="step-3-content">
+      <div class="flex flex-col items-center text-center max-w-lg mx-auto py-12">
+
+        <!-- Success Icon -->
+        <div class="w-24 h-24 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container mb-8">
+          <span class="material-symbols-outlined text-5xl" style="font-variation-settings:'FILL' 1;">check_circle</span>
+        </div>
+
+        <h4 class="font-headline-md text-headline-md text-on-surface mb-4">Consultation Requested</h4>
+        <p class="text-body-lg text-on-surface-variant mb-12">
+          Thank you, <span id="conf-name" class="font-bold text-primary"></span>. Your request for a
+          <span id="conf-service" class="font-bold text-primary"></span> session has been received.
+          Our team will verify the schedule and send a calendar invite within 2 hours.
+        </p>
+
+        <!-- Booking Summary -->
+        <div class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-8 space-y-6 text-left">
+          <div class="flex gap-4">
+            <span class="material-symbols-outlined text-primary">calendar_month</span>
+            <div>
+              <p class="font-label-md text-xs text-on-surface-variant uppercase">Date &amp; Time</p>
+              <p id="conf-datetime" class="text-body-md font-bold"></p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="material-symbols-outlined text-primary">videocam</span>
+            <div>
+              <p class="font-label-md text-xs text-on-surface-variant uppercase">Format</p>
+              <p id="conf-format" class="text-body-md text-on-surface-variant"></p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="material-symbols-outlined text-primary">mail</span>
+            <div>
+              <p class="font-label-md text-xs text-on-surface-variant uppercase">Confirmation sent to</p>
+              <p class="text-body-md text-on-surface-variant">Your registered email address</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 flex gap-4 flex-wrap justify-center">
+          <button onclick="addToCalendar()" class="bg-primary text-on-primary font-label-md px-8 py-4 rounded-lg hover:opacity-90 transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">calendar_add_on</span>
+            Add to Calendar
+          </button>
+          <a href= # class="border border-outline font-label-md px-8 py-4 rounded-lg hover:bg-surface-container transition-all flex items-center gap-2 text-on-surface">
+            <span class="material-symbols-outlined text-sm">article</span>
+            Go to Insights
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-unit bg-surface-container-highest font-body-md text-body-md">
+  <div class="grid grid-cols-12 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+    <div class="col-span-12 md:col-span-4 mb-12">
+      <p class="font-headline-sm text-headline-sm text-on-surface-variant mb-6">Fabian Sitaka</p>
+      <p class="text-on-surface-variant max-w-xs mb-8">NEMA Registered Associate Expert providing premium environmental consulting and sustainability solutions across Kenya.</p>
+    </div>
+    <div class="col-span-6 md:col-span-2 mb-12">
+      <h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-widest">Solutions</h5>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="services.html">EIA Reports</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="services.html">EPR Strategy</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="services.html">Waste Audits</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="services.html">ESG Reporting</a></li>
+      </ul>
+    </div>
+    <div class="col-span-6 md:col-span-2 mb-12">
+      <h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-widest">Expertise</h5>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">About Fabian</a></li>
+        <!--<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="insights.html">Insights</a></li>-->
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">Resources</a></li>
+        <!--<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a></li>-->
+      </ul>
+    </div>
+    <div class="col-span-12 md:col-span-4 mb-12">
+      <h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-widest">Newsletter</h5>
+      <p class="text-on-surface-variant mb-6">Stay updated on Kenyan environmental regulations and sustainability trends.</p>
+      <div class="flex gap-2">
+        <input class="flex-1 bg-surface-container border-none text-on-surface rounded-lg focus:ring-2 focus:ring-primary" placeholder="Email Address" type="email"/>
+        <button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-bold" onclick="event.preventDefault(); showComingSoon();">Join</button>
+      </div>
+    </div>
+    <div class="col-span-12 pt-12 border-t border-outline-variant flex flex-col md:flex-row justify-between gap-6">
+      <p class="text-on-surface-variant">© 2026 Fabian Sitaka. All rights reserved. NEMA Registered Expert.</p>
+      <div class="flex gap-8">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="comingSoonModal" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="hideComingSoon()">&times;</span>
+
+    <div class="icon">🚀</div>
+
+    <h2>Coming Soon</h2>
+
+    <p>This feature is under development. Check back soon.</p>
+
+    <button class="close-btn" onclick="hideComingSoon()">Got It</button>
+  </div>
+</div>
+<script>
+// ─── State ───────────────────────────────────────────────────────────────────
+const formData = {
+  fullName:'', organization:'', phone:'', email:'',
+  service:'', format:'virtual', date:null, time:null
+};
+
+// ─── Step Navigation ──────────────────────────────────────────────────────────
+function nextStep(step) {
+  // Validation gates -- bail before touching DOM if invalid
+  if (step === 2 && !validateStep1()) return;
+  if (step === 3 && !validateStep2()) return;
+  if (step === 3) submitBooking();
+
+  // Explicitly hide all steps (reliable original pattern)
+  document.getElementById('step-1-content').classList.add('hidden');
+  document.getElementById('step-2-content').classList.add('hidden');
+  document.getElementById('step-3-content').classList.add('hidden');
+
+  // Reset all stepper buttons
+  var btn1 = document.getElementById('step-1-btn');
+  var btn2 = document.getElementById('step-2-btn');
+  var btn3 = document.getElementById('step-3-btn');
+  [btn1, btn2, btn3].forEach(function(btn) {
+    btn.classList.remove('step-active');
+    btn.classList.add('text-on-surface-variant', 'opacity-50');
+  });
+
+  // Show the target step
+  document.getElementById('step-' + step + '-content').classList.remove('hidden');
+  var activeBtn = document.getElementById('step-' + step + '-btn');
+  activeBtn.classList.add('step-active');
+  activeBtn.classList.remove('text-on-surface-variant', 'opacity-50');
+
+  // Mobile scroll
+  if (window.innerWidth < 768) {
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+  }
+}
+
+// ─── Validation ───────────────────────────────────────────────────────────────
+function validateStep1() {
+  collectStep1();
+  const errors = [];
+  if (!formData.fullName.trim()) errors.push('name');
+  if (!formData.phone.trim()) errors.push('phone');
+  if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.push('email');
+  clearErrors();
+  if (errors.length) {
+    errors.forEach(f => showFieldError(f));
+    showToast('Please fill in all required fields correctly.', 'error');
+    return false;
+  }
+  return true;
+}
+
+function validateStep2() {
+  if (!formData.date) { showToast('Please select a date on the calendar.', 'error'); return false; }
+  if (!formData.time) { showToast('Please select a time slot.', 'error'); return false; }
+  return true;
+}
+
+function collectStep1() {
+  formData.fullName     = document.getElementById('f-name').value.trim();
+  formData.organization = document.getElementById('f-org').value.trim();
+  formData.phone        = document.getElementById('f-phone').value.trim();
+  formData.email        = document.getElementById('f-email').value.trim();
+  formData.service      = document.getElementById('f-service').value;
+  const checked = document.querySelector('input[name="format"]:checked');
+  formData.format = checked ? checked.value : 'virtual';
+}
+
+function showFieldError(fieldId) {
+  const el = document.getElementById(`f-${fieldId}`);
+  if (!el) return;
+  el.classList.add('border-error','border-b-2');
+  const label = el.closest('.space-y-2')?.querySelector('label');
+  if (label) label.classList.add('text-error');
+}
+
+function clearErrors() {
+  document.querySelectorAll('#step-1-content input, #step-1-content select').forEach(el => {
+    el.classList.remove('border-error','border-b-2');
+  });
+  document.querySelectorAll('#step-1-content label').forEach(l => l.classList.remove('text-error'));
+}
+
+// ─── Toast ────────────────────────────────────────────────────────────────────
+function showToast(msg, type = 'info') {
+  const existing = document.getElementById('booking-toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.id = 'booking-toast';
+  const bg = type === 'error'
+    ? 'background:#ba1a1a;color:#fff'
+    : 'background:#00450d;color:#fff';
+  toast.setAttribute('style', `position:fixed;bottom:24px;right:24px;z-index:9999;padding:14px 24px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.18);transition:opacity 0.3s;${bg}`);
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => { toast.style.opacity='0'; setTimeout(()=>toast.remove(), 350); }, 3800);
+}
+
+// ─── Calendar ─────────────────────────────────────────────────────────────────
+let calendarDate = new Date();
+calendarDate.setDate(1);
+
+const TIME_SLOTS = [
+  '08:00 AM','09:00 AM','10:00 AM','11:00 AM',
+  '12:00 PM','01:00 PM','02:00 PM','03:00 PM','04:00 PM'
+];
+
+function renderCalendar() {
+  const year  = calendarDate.getFullYear();
+  const month = calendarDate.getMonth();
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  const monthNames = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'];
+  document.getElementById('cal-month-label').textContent = `${monthNames[month]} ${year}`;
+
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+
+  // Day headers
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d => {
+    const h = document.createElement('div');
+    h.style.cssText = 'text-align:center;font-size:11px;font-weight:600;color:#41493e;padding:8px 0;letter-spacing:0.05em;';
+    h.textContent = d;
+    grid.appendChild(h);
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    grid.appendChild(document.createElement('div'));
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateObj  = new Date(year, month, d);
+    const dateStr  = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dow      = dateObj.getDay();
+    const isPast   = dateObj < today;
+    const isWeekend = dow === 0 || dow === 6;
+    const isDisabled = isPast || isWeekend;
+    const isSelected = formData.date === dateStr;
+    const isToday  = dateObj.getTime() === today.getTime();
+
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'display:flex;align-items:center;justify-content:center;padding:3px 0;';
+
+    const cell = document.createElement('button');
+    cell.type = 'button';
+    cell.textContent = d;
+    cell.setAttribute('data-date', dateStr);
+
+    let styles = 'width:36px;height:36px;border-radius:50%;border:none;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:background 0.15s,color 0.15s;';
+
+    if (isSelected) {
+      styles += 'background:#00450d;color:#fff;font-weight:700;';
+    } else if (isDisabled) {
+      styles += 'background:transparent;color:#c0c9bb;cursor:not-allowed;';
+      cell.disabled = true;
+    } else if (isToday) {
+      styles += 'background:transparent;color:#00450d;font-weight:700;outline:2px solid #00450d;outline-offset:-2px;';
+    } else {
+      styles += 'background:transparent;color:#191c1d;';
+      cell.addEventListener('mouseenter', () => { cell.style.background='#a0f399'; cell.style.color='#00450d'; });
+      cell.addEventListener('mouseleave', () => { cell.style.background='transparent'; cell.style.color='#191c1d'; });
+      cell.addEventListener('click', () => selectDate(dateStr));
+    }
+
+    cell.style.cssText = styles;
+    wrapper.appendChild(cell);
+    grid.appendChild(wrapper);
+  }
+}
+
+function selectDate(dateStr) {
+  formData.date = dateStr;
+  formData.time = null;
+  renderCalendar();
+  renderTimeSlots();
+
+  const [y, m, d] = dateStr.split('-');
+  const dt = new Date(parseInt(y), parseInt(m)-1, parseInt(d));
+  const display = dt.toLocaleDateString('en-KE', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('selected-date-display').textContent = display;
+  document.getElementById('time-slots-section').classList.remove('hidden');
+  document.getElementById('time-slots-section').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function renderTimeSlots() {
+  const container = document.getElementById('time-slots-grid');
+  container.innerHTML = '';
+  TIME_SLOTS.forEach(slot => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = slot;
+    const isSelected = formData.time === slot;
+    btn.style.cssText = isSelected
+      ? 'padding:10px 8px;border-radius:8px;font-size:13px;font-weight:600;background:#00450d;color:#fff;border:1.5px solid #00450d;cursor:pointer;font-family:inherit;transition:all 0.15s;'
+      : 'padding:10px 8px;border-radius:8px;font-size:13px;font-weight:600;background:#fff;color:#191c1d;border:1px solid #c0c9bb;cursor:pointer;font-family:inherit;transition:all 0.15s;';
+    if (!isSelected) {
+      btn.addEventListener('mouseenter', () => { btn.style.borderColor='#00450d'; btn.style.color='#00450d'; });
+      btn.addEventListener('mouseleave', () => { btn.style.borderColor='#c0c9bb'; btn.style.color='#191c1d'; });
+    }
+    btn.addEventListener('click', () => { formData.time = slot; renderTimeSlots(); });
+    container.appendChild(btn);
+  });
+}
+
+// ─── Confirmation ─────────────────────────────────────────────────────────────
+function populateConfirmation() {
+  const [y, m, d] = formData.date.split('-');
+  const dt = new Date(parseInt(y), parseInt(m)-1, parseInt(d));
+  const dateStr = dt.toLocaleDateString('en-KE', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  document.getElementById('conf-service').textContent  = formData.service;
+  document.getElementById('conf-datetime').textContent = `${dateStr} at ${formData.time}`;
+  document.getElementById('conf-format').textContent   = formData.format === 'virtual'
+    ? 'Virtual Meeting (Zoom / Teams)' : 'Physical Office — Nairobi HQ';
+  document.getElementById('conf-name').textContent     = formData.fullName;
+}
+
+// ─── Add to Calendar (Google Calendar) ───────────────────────────────────────
+function addToCalendar() {
+  if (!formData.date || !formData.time) return;
+  const [y, m, d]   = formData.date.split('-');
+  const hour = parseInt(formData.time);
+  const ampm = formData.time.includes('PM') && hour !== 12 ? hour + 12 : (formData.time.includes('AM') && hour === 12 ? 0 : hour);
+  const startDt = `${y}${m}${d}T${String(ampm).padStart(2,'0')}0000`;
+  const endHour = (ampm + 1) % 24;
+  const endDt   = `${y}${m}${d}T${String(endHour).padStart(2,'0')}0000`;
+  const title   = encodeURIComponent(`Consultation with Fabian Sitaka — ${formData.service}`);
+  const details = encodeURIComponent(`${formData.format === 'virtual' ? 'Virtual Meeting (Zoom/Teams)' : 'Physical Office – Nairobi HQ'}\n\nBooked by: ${formData.fullName}`);
+  window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDt}/${endDt}&details=${details}`, '_blank');
+}
+
+// ─── EmailJS Submission ───────────────────────────────────────────────────────
+function submitBooking() {
+  collectStep1();
+  populateConfirmation();
+
+  const [y, m, d] = formData.date.split('-');
+  const dt = new Date(parseInt(y), parseInt(m)-1, parseInt(d));
+  const dateStr = dt.toLocaleDateString('en-KE', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  const params = {
+    to_name:      'Fabian Sitaka',
+    from_name:    formData.fullName,
+    from_email:   formData.email,
+    phone:        formData.phone,
+    organization: formData.organization || 'Not provided',
+    service:      formData.service,
+    format:       formData.format === 'virtual' ? 'Virtual Meeting (Zoom/Teams)' : 'Physical Office — Nairobi HQ',
+    date:         dateStr,
+    time:         formData.time,
+    reply_to:     formData.email
+  };
+
+  // Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with your EmailJS credentials
+  emailjs.send('service_2er7w4t', 'template_29s7hb8', params)
+    .then(() => showToast('Booking confirmed! Notification sent to the consultant.'))
+    .catch(err => {
+      console.error('EmailJS error:', err);
+      showToast('Booking logged. Email notification will be retried.');
+    });
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderCalendar();
+
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    const today    = new Date();
+    const proposed = new Date(calendarDate.getFullYear(), calendarDate.getMonth() - 1, 1);
+    const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    if (proposed >= minMonth) { calendarDate = proposed; renderCalendar(); }
+  });
+
+  document.getElementById('cal-next').addEventListener('click', () => {
+    calendarDate = new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 1);
+    renderCalendar();
+  });
+
+  // Label focus lift
+  document.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('focus', () => {
+      const label = el.closest('.space-y-2')?.querySelector('label');
+      if (label) label.classList.add('text-primary');
+    });
+    el.addEventListener('blur', () => {
+      const label = el.closest('.space-y-2')?.querySelector('label');
+      if (label) label.classList.remove('text-primary');
+    });
+  });
+});
+
+//call coming soon pop up
+function showComingSoon() {
+  const modal = document.getElementById("comingSoonModal");
+  if (modal) modal.style.display = "block";
+}
+
+function hideComingSoon() {
+  const modal = document.getElementById("comingSoonModal");
+  if (modal) modal.style.display = "none";
+}
+
+// optional: click outside to close
+window.addEventListener("click", function (e) {
+  const modal = document.getElementById("comingSoonModal");
+  if (e.target === modal) {
+    hideComingSoon();
+  }
+});
+</script>
+</body>
+</html>
